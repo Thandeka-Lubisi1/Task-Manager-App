@@ -1,0 +1,135 @@
+GENERAL DEVELOPMENT QUESTIONS - ANSWERS
+
+1. Explain the difference between an API integration error and a logic error.
+
+   API Integration Error:
+   - Occurs when there are communication issues between different systems or services
+   - Examples: incorrect endpoints, wrong HTTP methods, authentication failures, network timeouts
+   - Usually results in HTTP error codes (4xx, 5xx) or connection failures
+   - Can be identified through network monitoring, API logs, or HTTP response codes
+   - Often requires checking API documentation, network configuration, or service availability
+
+   Logic Error:
+   - Occurs when the application's business logic or algorithms don't work as intended
+   - Examples: incorrect calculations, wrong conditional logic, improper data transformations
+   - Usually results in incorrect output or unexpected behavior rather than crashes
+   - Can be identified through unit testing, code review, or debugging with sample data
+   - Requires analyzing the actual code logic and understanding the intended behavior
+
+2. What steps would you take to troubleshoot a non-responsive API call?
+
+   a) Check Network Connectivity:
+      - Verify internet connection and firewall settings
+      - Test if the API endpoint is reachable (ping, telnet, or browser)
+
+   b) Verify API Endpoint:
+      - Confirm the correct URL and endpoint path
+      - Check if the API service is running and accessible
+      - Verify SSL certificates if using HTTPS
+
+   c) Check Request Details:
+      - Validate HTTP method (GET, POST, PUT, DELETE)
+      - Verify required headers (Content-Type, Authorization, etc.)
+      - Check request payload format and size
+
+   d) Monitor Response:
+      - Check HTTP status codes and response headers
+      - Look for error messages in response body
+      - Monitor network tab in browser dev tools
+
+   e) Check Server Logs:
+      - Review API server logs for errors
+      - Check database connectivity and performance
+      - Monitor server resource usage (CPU, memory, disk)
+
+   f) Test with Different Tools:
+      - Use Postman or similar API testing tools
+      - Test with curl or other command-line tools
+      - Compare behavior across different clients
+
+3. Why is it important to separate frontend and backend responsibilities?
+
+   a) Maintainability:
+      - Each layer can be developed, tested, and maintained independently
+      - Changes to one layer don't necessarily affect the other
+      - Easier to assign different developers to different layers
+
+   b) Scalability:
+      - Frontend and backend can be scaled independently based on demand
+      - Can deploy multiple frontend instances while keeping one backend
+      - Different technologies can be chosen for each layer based on requirements
+
+   c) Security:
+      - Backend can implement proper authentication and authorization
+      - Sensitive business logic stays on the server
+      - Frontend can focus on user experience without security concerns
+
+   d) Technology Flexibility:
+      - Frontend can be built with different frameworks (Angular, React, Vue)
+      - Backend can use different languages (C#, Java, Python, Node.js)
+      - Each layer can evolve independently
+
+   e) Testing:
+      - Can test business logic separately from UI logic
+      - Easier to write unit tests for specific functionality
+      - Can mock one layer while testing the other
+
+4. Name a testing framework or tool you have used or researched and describe its purpose.
+
+   xUnit (C#):
+   - Purpose: Unit testing framework for .NET applications
+   - Features: 
+     * Attribute-based test methods ([Fact], [Theory])
+     * Assertion methods for validating results
+     * Test discovery and execution
+     * Support for test data and parameterized tests
+   - Benefits: Integrates well with Visual Studio, supports async testing, extensive assertion library
+   - Use Cases: Testing individual methods, classes, and business logic in isolation
+
+   Jasmine (Angular):
+   - Purpose: Behavior-driven development testing framework for JavaScript/TypeScript
+   - Features:
+     * Describe blocks for organizing tests
+     * It blocks for individual test cases
+     * BeforeEach/AfterEach for setup and teardown
+     * Mocking and spying capabilities
+   - Benefits: Built into Angular CLI, readable test syntax, good integration with testing utilities
+   - Use Cases: Testing Angular components, services, and directives
+
+5. How do you ensure your code remains maintainable over time?
+
+   a) Code Organization:
+      - Follow consistent naming conventions
+      - Organize code into logical folders and namespaces
+      - Separate concerns (business logic, data access, presentation)
+      - Use design patterns where appropriate
+
+   b) Documentation:
+      - Write clear, concise comments explaining complex logic
+      - Document public APIs and interfaces
+      - Maintain README files with setup and usage instructions
+      - Use meaningful commit messages and changelogs
+
+   c) Testing:
+      - Write comprehensive unit tests for critical functionality
+      - Maintain high test coverage
+      - Use integration tests for complex workflows
+      - Implement automated testing in CI/CD pipelines
+
+   d) Code Quality:
+      - Use static analysis tools and linters
+      - Follow coding standards and style guides
+      - Conduct regular code reviews
+      - Refactor complex or duplicated code
+
+   e) Version Control:
+      - Use meaningful branch names and commit messages
+      - Keep commits small and focused
+      - Use feature branches for new development
+      - Tag releases and maintain release notes
+
+   f) Dependency Management:
+      - Keep dependencies up to date
+      - Use dependency injection for loose coupling
+      - Avoid tight coupling between components
+      - Document external dependencies and their purposes

@@ -1,0 +1,75 @@
+DEBUG NOTES - Task Manager Application
+
+BUGGY_BACKEND.CS ISSUES IDENTIFIED AND FIXED:
+
+1. PROBLEM IDENTIFIED: Missing ID assignment for new tasks
+   - The original code didn't assign unique IDs to new tasks
+   - This would cause issues with task identification and updates
+   HOW YOU FIXED IT: Added a static counter (nextId) that increments for each new task
+
+2. PROBLEM IDENTIFIED: Hardcoded priority assignment
+   - The original code always set priority to "Low" regardless of input
+   - This ignored user's priority selection
+   HOW YOU FIXED IT: Removed the hardcoded assignment and added proper priority validation
+
+3. PROBLEM IDENTIFIED: Missing priority validation
+   - The original code didn't validate that priority values were valid
+   - This could lead to invalid data in the system
+   HOW YOU FIXED IT: Added validation to ensure priority is one of: High, Medium, Low
+
+4. PROBLEM IDENTIFIED: Missing null check in CompleteTask
+   - The original code didn't check if a task exists before trying to complete it
+   - This would cause a runtime error if an invalid ID was passed
+   HOW YOU FIXED IT: Added null check and return NotFound result for non-existent tasks
+
+5. PROBLEM IDENTIFIED: Missing Completed property initialization
+   - New tasks didn't have their Completed property set to false
+   - This could lead to undefined behavior
+   HOW YOU FIXED IT: Explicitly set Completed = false for new tasks
+
+6. PROBLEM IDENTIFIED: Missing using statement for LINQ
+   - The Contains method requires System.Linq namespace
+   - This would cause compilation errors
+   HOW YOU FIXED IT: Added proper using statements and LINQ support
+
+BUGGY_FRONTEND.TS ISSUES IDENTIFIED AND FIXED:
+
+1. PROBLEM IDENTIFIED: Incorrect API endpoint in loadTasks()
+   - The original code called '/tasks' instead of '/api/tasks'
+   - This would result in 404 errors
+   HOW YOU FIXED IT: Updated to use correct endpoint '/api/tasks'
+
+2. PROBLEM IDENTIFIED: Wrong HTTP method in completeTask()
+   - The original code used GET instead of PUT for completing tasks
+   - This violates REST principles and wouldn't work with the backend
+   HOW YOU FIXED IT: Changed to use PUT method as intended
+
+3. PROBLEM IDENTIFIED: Missing error handling
+   - The original code didn't handle HTTP errors
+   - This could lead to silent failures and poor user experience
+   HOW YOU FIXED IT: Added proper error handling with console.error logging
+
+4. PROBLEM IDENTIFIED: Missing proper component structure
+   - The original code was incomplete and missing proper Angular component setup
+   - This would cause compilation and runtime errors
+   HOW YOU FIXED IT: Created proper standalone components with complete templates and styling
+
+5. PROBLEM IDENTIFIED: Missing form validation and user feedback
+   - The original code didn't validate form inputs or provide user feedback
+   - This would lead to poor user experience
+   HOW YOU FIXED IT: Added form validation, error messages, and proper user feedback
+
+6. PROBLEM IDENTIFIED: Missing filtering functionality
+   - The original code didn't implement the required filtering by priority and completion status
+   - This was a missing requirement from the assessment
+   HOW YOU FIXED IT: Implemented comprehensive filtering with dropdown selectors
+
+ADDITIONAL IMPROVEMENTS MADE:
+
+1. Added proper CORS configuration for frontend-backend communication
+2. Implemented comprehensive unit tests for backend functionality
+3. Added proper error handling and validation throughout the application
+4. Created a modern, responsive UI with proper styling
+5. Implemented proper Angular standalone components architecture
+6. Added proper TypeScript interfaces and type safety
+7. Implemented proper HTTP service layer for API communication
